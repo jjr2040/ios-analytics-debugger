@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IosAnalyticsDebugger'
-  s.version          = '1.1.6'
+  s.version          = '1.1.9'
   s.summary          = 'The Avo iOS debugger'
 
   s.description      = 'Togglable UI to show list of background events, useful to check analytics events in debug builds'
@@ -22,13 +22,18 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'IosAnalyticsDebugger/Classes/**/*'
+  # s.source_files = 'IosAnalyticsDebugger/Classes/**/*'
   
-  s.resources = "IosAnalyticsDebugger/Assets/*.xcassets"
+  # s.resources = "IosAnalyticsDebugger/Assets/*.xcassets"
   
-  # s.resource_bundles = {
-  #   'IosAnalyticsDebugger' => ['IosAnalyticsDebugger/Assets/*.png']
-  # }
+  s.source_files = 'IosAnalyticsDebugger/Classes/**/*.{h,m}'
+  
+  s.resource_bundles = {
+     'IosAnalyticsDebugger' => [
+     	'IosAnalyticsDebugger/Assets/*.xcassets',
+     	'IosAnalyticsDebugger/Classes/**/*.xib'
+     ]
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

@@ -132,8 +132,9 @@ NSString *currentSchemaId;
         [debuggerView onClick];
         
         UIViewController *rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-        
-        EventsListScreenViewController *eventsListViewController = [[EventsListScreenViewController alloc] initWithNibName:@"EventsListScreenViewController" bundle:[NSBundle bundleForClass:[EventsListScreenViewController class]]];
+        NSURL *bundleURL = [[[NSBundle bundleForClass:self.class] resourceURL] URLByAppendingPathComponent:@"IosAnalyticsDebugger.bundle"];
+        NSBundle *resBundle = [NSBundle bundleWithURL:bundleURL]; 
+        EventsListScreenViewController *eventsListViewController = [[EventsListScreenViewController alloc] initWithNibName:@"EventsListScreenViewController" bundle:resBundle];
         [eventsListViewController setModalPresentationStyle:UIModalPresentationFullScreen];
         
         [rootViewController presentViewController:eventsListViewController animated:YES completion:nil];
